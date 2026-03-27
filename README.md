@@ -1,9 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
-
 ### Dissociating the Mechanisms of Stroboscopic Hallucinations: A Trait-Based Test in Synaesthesia
 
 As part of the online component to be complete prior to the in-person
