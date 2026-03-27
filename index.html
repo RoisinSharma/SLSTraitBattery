@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Title shown in tab -->
+    <title>Phenomenological Control Scale</title>
+
+    <!-- Load JsPsych -->
+    <script src="https://unpkg.com/jspsych@8.2.1" type="text/javascript"></script>
+
+    <script src="https://unpkg.com/@jspsych/plugin-audio-button-response@2.1.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-audio-keyboard-response@2.1.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-button-response@2.1.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-preload@2.1.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-survey@2.0.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@2.1.0"></script>
+
+
+    <!-- Add full URL https://realitybending.github.io/JSmisc/... -->
+    <script src="pcs_new.js"></script>
+    <script src="demographics.js"></script>
+
+    <link href="https://unpkg.com/jspsych@8.0.1/css/jspsych.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://unpkg.com/@jspsych/plugin-survey@2.0.0/css/survey.css" />
+
+    <style>
+        .blacktext {
+            color: rgb(0, 0, 0);
+        }
+    </style>
+</head>
+
+<body></body>
+
+<script>
+    // Initialize experiment =================================================
+    var timeline = []
+
+    var jsPsych = initJsPsych({
+        on_finish: function () {
+            jsPsych.data.displayData("json") // Display data in browser
+        },
+        use_webaudio: true,
+        override_safe_mode: true
+    })
+
+     // Participant ID
+        const participantID = jsPsych.randomization.randomID(10)
+
+        // full screen
+        timeline.push()
+        timeline.push(ConsentForm)
+    // Timeline -------------------------------------------------------------------
+    timeline.push(pcs_timeline)
+
+    //  Run the timeline =====================================================
+    jsPsych.run(timeline)
+</script>
+
+</html>
