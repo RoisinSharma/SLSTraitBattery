@@ -734,7 +734,7 @@ const pcs_finish = {
     type: jsPsychSurvey,
     survey_json: {
         showQuestionNumbers: false,
-        completeText: "Finish",
+        completeText: "Next",
         pages: [
             {
                 elements: [
@@ -742,7 +742,7 @@ const pcs_finish = {
                         type: "html",
                         name: "pcs_finish",
                         html:
-                            "<h2>You have completed this interactive task. The next part includes a short questionnaire.</h2>" +
+                            "<h4>You have completed this interactive task. The next part includes a short questionnaire.</h4>" +
                             "<p>You may recall that during the session today, you were asked to hold up your hand when you heard a recording of <b style='color:green;'>'Happy Birthday to You'</b>." +
                             " In fact, no recording was played—there <b>was no music in the room</b>." +
                             "<p> Also, near the end of the session, you were told that you would see two balls on the screen. Actually, there were three balls in the picture." +
@@ -761,6 +761,7 @@ const pcs_finish = {
 // Timeline ========================================================================
 const pcs_timeline = {
     timeline: [
+        pcs_finish,
         pcs_preload,
         pcs_instructions,
         pcs_audiotest,
