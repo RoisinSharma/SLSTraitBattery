@@ -8,7 +8,7 @@ const ConsentForm = {
 
         // Logo and title
         let text =
-            "<img src='https://blogs.brighton.ac.uk/sussexwrites/files/2019/06/University-of-Sussex-logo-transparent.png' width='150px' align='right'/><br><br><br><br><br>" +
+            "<img src='https://RoisinSharma.github.io/SLSTraitBattery/images/logo.jpg' width='150px' align='right'/><br><br><br><br><br>" +
             "<h1>Informed Consent</h1>"
 
         // Main Text
@@ -20,35 +20,45 @@ const ConsentForm = {
             "This study is being conducted by student researcher Róisín Sharma, and project supervisor Dr David Schwartzman from the Sussex Center for Consciousness Science, University of Sussex (see contact information below). " +
             "This study needs to be completed on a computer/laptop to ensure all elements of the task appear correctly. If at any point you wish to stop participating and withdraw your data, please close the tab. This will prevent your data from being saved." +
             // Description
-            "<h4>Why have I been invited to take part and what will I do?</h4>" +
+            "<h4>What is the purpose of the study?</h4>" +
             "This study will compare stroboscopic hallucinations in people with grapheme-colour synesthesia to people without synesthesia. " +
             "Synesthesia is a condition where stimulation of one sensory or cognitive pathway leads to automatic, involuntary experiences in a second sensory or cognitive pathway. People with grapheme-colour synesthesia experience specific colours when viewing letters and/or numbers. " +
-            "The study also aims to investigate how individual differences relate to stroboscopic hallucinations. " +
-            "You will then complete the in-person component of this study at the Univeristy of Sussex, which will involve stroboscopic light stimulation, Transcranial Magnetic Stimulation (TMS), a short recorded interview and two questionnaires. This component will take approximately 60 minutes. " +
-            "Results from this online component will be compared to your experiences during stroboscopic light stimulation. " +
-            "<p>Before the beginning the study, you will confirm eligability for this study:</p>" +
-            // questionnaires before taks
+            "The study will also investigate individual differences in percpetual experiences from strobe light. " +
+
+            "<h4>What does this study entail?</h4>" +
+            "Prior to the main experiment, you will complete an interactive task and a questionnaire online to measure sensory imagery and experiences (~XX minutes). " +
+            "We will also ask you to complete an online task to verify if you are a grapheme-colour synesthete or not. "+
+            "You will then complete the in-person component of this study at the University of Sussex (~XX minutes), where we will apply gentle magnetic pulses to your brain via transcranial magnetic stimulation (TMS). " +
+            "TMS applies a soft magnetic pulse into the brain via an electronically controlled magnetic coil, causing neurons in the designated area to activate. "+
+            "We will then run trials using stroboscopic light stimulation, in which you will look at a strobe lamp through goggles, which causes altered perceptual experiences, such as seeing geometric patterns. "+
+            "A short recorded interview and two questionnaires will follow each strobe session. " +
+            
+            // this online component
+            "<h4>This section</h4>" +
+            "In this online component, you will complete two tasks: " +
             "<ul style='padding-left: 30px;'>" +
-            "<li><b>Safety Screening:</b> Participants must not be at risk of migraines or epilepsy.</li>" +
-            "<li><b>Mental Health:</b> Participants must not suffer from anxiety disorders.</li>" +
-            "<li><b>Transmagnetic Stimulation eligibility:</b> Participants must not have intracranial implants or neurological conditions.</li>" +
-            "<li><b>Medication and Other factors:</b> Participants must not be taking medication that could lower seizure threshold. </li>" +
+            "<li>An interactive task to measure sensory experiences.</li>" +
+            "<li>A questionnaire about mental imagery.</li>" +
             "</ul>" +
             //Task description
-            "You will then begin the online component. " +
-            "This will involve an interactive task and a short questionnaire. " +
             "Please find a comfortable position in front of the computer making sure you are at a sufficient distance to hold your hands in front of you without touching anything.</p>" +
-            "The online component will take you <b style='color:#FE6237;'>~60 minutes</b> to complete. Please make sure you are in a quiet environment, using <b>headphones</b> throughout and that you have time to complete it in one go." +
-            //Questionaires after tasks
+            "This online component will take you <b style='color:#FE6237;'>~60 minutes</b> to complete. Please make sure you are in a quiet environment, using <b>headphones</b> throughout and that you have time to complete it in one go." +
             
             //Note
             "Your participation is completely <b>voluntary</b>. You are free to <b style='color:#4B0FD6;'>close the webpage at any time</b> if you do not wish to continue. Your data will not be saved if you do so. " +
             "Please be assured that all information you provide will remain <b>completely anonymous</b>.</p>" +
             // Risks
-            "<h4>Are there any risks or benefits to taking part?</h4>" +
-            "<p><b style='color:red'>Warning:</b> The in-person component of this study will include <b>Transcranial Magnetic Stimulation (TMS)</b> and <b>Stroboscopic Light Stimulation</b>, which have a rare risk of causing seizures. " +
-            "<b>Please read the following information carefully to determine whether you are eligible to take part in this study. </b>" +
+            "<h4>What are the possible benefits of taking part?</h4>" +
+            "To compensate you for your time and effort, you will receive either X SONA credits per hour or XX GBP per hour. Travel expenses will not be covered. " +
+            "Additionally, the knowledge gained from this study may inform research on the diversity and underlying mechanisms of perceptual experiences. " +
+            "Although there is no direct benefit for you, in participating in the study you will know that you have made a valuable contribution to these objectives. " +
             "As stated above, you can <b style='color:#4B0FD6;'>withdraw from the study at any time</b> by closing the tab (your data will <b>not</b> be saved).</p> " +
+           
+           "<h4>Are there any risks in taking part?</h4>" +
+            "The TMS may induce brief tingling or a mild headache afterward, which are short-lived and manageable with rest or simple pain relief. "+
+            " In rare cases, the strobe may cause a seizure. The chance of serious side effects is extremely low, as high-risk participants are excluded via our pre-screening procedures and all experimenters are first-aid trained. " +
+            " If you feel that answering any of these questions will negatively impact your wellbeing or cause significant lasting distress, it is important to not take part in this study." +
+
             // Results and personal information
             "<h4>What will happen to the results and my personal information?</h4>" +
             "The results of this research will be included in a preregistered publication. In addition, this data will be used for other studies and the anonymised data will be made publicly available. If you wish to be notified once this is available, please contact Dr David Schwartzman (<i style='color:DodgerBlue;'>D.Schwartzman@sussex.ac.uk</i>). Your anonymity will be ensured in the way described in the consent information below. If you wish to take part, please acknowledge that you have fully understood this sheet, and that you consent to take part in the study as it is described here.</p>" +

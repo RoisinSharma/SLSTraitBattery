@@ -1,5 +1,7 @@
-var pcs_path = "https://realitybending.github.io/JSmisc/questionnaires/PCS/"
+var pcs_path = "https://RoisinSharma.github.io/SLSTraitBattery"
 
+
+//PCS=================================================================================================================================================================
 // Start ========================================================================
 const pcs_preload = {
     type: jsPsychPreload,
@@ -40,7 +42,7 @@ const pcs_instructions = {
                             "<div style='width: 60%; margin-right: 20px;'>" +
                             "<h2>Before you start..</h2>" +
                             "Please find a comfortable position in front of the computer making sure you are at a sufficient distance to hold your hands in front of you without touching anything.</p>" +
-                            "Make sure you will not be disturbed for the next 60 minutes. The experiment should be completed in a quiet environment and using <b>headphones</b> throughout. " +
+                            "Make sure you will not be disturbed for the next 60 minutes. The experiment should be completed in a quiet environment and using <b>headphones</b> throughout. git " +
                             "Audio instructions will shortly be played. " +
                             "<p><b> NOTE. Some of the audio recordings have periods of silence where it may sound like the recording has stopped or ended prematurely - it won't have." +
                             "These periods of silence are there for you to focus on the imaginative exercises. Please focus on doing that and wait for the instructions to restart. </b>" +
@@ -742,7 +744,7 @@ const pcs_finish = {
                         type: "html",
                         name: "pcs_finish",
                         html:
-                            "<h4>You have completed this interactive task. The next part includes a short questionnaire.</h4>" +
+                            "<h4>You have completed this interactive task.</h4>" +
                             "<p>You may recall that during the session today, you were asked to hold up your hand when you heard a recording of <b style='color:green;'>'Happy Birthday to You'</b>." +
                             " In fact, no recording was played—there <b>was no music in the room</b>." +
                             "<p> Also, near the end of the session, you were told that you would see two balls on the screen. Actually, there were three balls in the picture." +
@@ -796,3 +798,360 @@ const pcs_timeline = {
         pcs_finish,
     ],
 }
+
+//Psi-Q =================================================================================================================================================================
+// Convernience function to shuffle an object (used internally)
+function shuffleObject(obj) {
+    const entries = Object.entries(obj)
+    for (let i = entries.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1))
+        ;[entries[i], entries[j]] = [entries[j], entries[i]]
+    }
+    return Object.fromEntries(entries)
+}
+
+const psiq_intro = {
+    type: jsPsychSurvey,
+    survey_json: {
+        showQuestionNumbers: false,
+        completeText: "Start",
+        pages: [
+            {
+                elements: [
+                    {
+                        type: "html",
+                        name: "psi_q_intro",
+                        html: "<h4>Sensory Imagery Questionnaire</h4>" +
+                              "<p>Please try to form the images described below and rate each mental image on the following scale:</p>" +
+                              "<p><b>0</b> = (no image at all) to <b>10</b> (image as clear and vivid as real life)</p>" +
+                              "<p>Tick the appropriate box for each item. Please rate every item.</p>"
+                    }
+                ]
+            }
+
+        ]
+    }
+}
+// APPEARANCE
+
+const appearance = {
+    psiq_appearance1: "A friend you know well",
+    psiq_appearance2: "A cat climbing a tree",
+    psiq_appearance3: "A sunset",
+    psiq_appearance4: "The front door of your house",
+    psiq_appearance5: "A bonfire",
+}
+
+//make questions
+const make_appearance = (items_appearance, required = true, ticks = ["No image at all", "Image as clear and vivid as real life"]) => { //AI added the '=>', not in rebel code though
+    items_appearance = shuffleObject(appearance)
+    questions = [ ] //might need to be empty placeholder
+
+    // Loop through the items and create a rating question for each
+    for (const key of Object.keys(items_appearance)) {
+        q = {
+            title: items_appearance[key],
+            name: key,
+            type: "rating",
+            displayMode: "buttons",
+            isRequired: required,
+            minRateDescription: ticks[0],
+            maxRateDescription: ticks[1],
+            rateValues: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        }
+        questions.push(q)
+    }
+    return { elements: questions }
+}
+
+const psiq_appearance = {
+    type: jsPsychSurvey,
+    survey_json: function () {
+        return {
+            title: "Imagine the appearance of:",
+            showQuestionNumbers: false,
+            goNextPageAutomatic: false,
+            pages: make_appearance(appearance),
+            completeText: "Continue",
+        }
+    },
+    data: {
+        screen: "psiq_appearance",
+    },
+}
+
+// SOUND
+
+const sound = {
+    psiq_sound1: "An ambulance siren",
+    psiq_sound2: "Hands clapping in applause",
+    psiq_sound3: "The mewing of a cat",
+    psiq_sound4: "The sound of a car horn",
+    psiq_sound5: "The sound of children playing",
+}
+
+//make questions
+const make_sound = (items_sound, required = true, ticks = ["No image at all", "Image as clear and vivid as real life"]) => { //AI added the '=>', not in rebel code though
+    items_sound = shuffleObject(sound)
+    questions = [ ] 
+
+    for (const key of Object.keys(items_sound)) {
+        q = {
+            title: items_sound[key],
+            name: key,
+            type: "rating",
+            displayMode: "buttons",
+            isRequired: required,
+            minRateDescription: ticks[0],
+            maxRateDescription: ticks[1],
+            rateValues: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        }
+        questions.push(q)
+    }
+    return { elements: questions }
+}
+
+const psiq_sound = {
+    type: jsPsychSurvey,
+    survey_json: function () {
+        return {
+            title: "Imagine the sound of:",
+            showQuestionNumbers: false,
+            goNextPageAutomatic: false,
+            pages: make_sound(sound),
+            completeText: "Continue",
+        }
+    },
+    data: {
+        screen: "psiq_sound",
+    },
+}
+
+//SMELL
+
+const smell = {
+    psiq_smell1: "A stuffy room",
+    psiq_smell2: "A rose",
+    psiq_smell3: "Fresh paint",
+    psiq_smell4: "Newly cut grass",
+    psiq_smell5: "Burning wood",
+}
+//make questions
+const make_smell = (items_smell, required = true, ticks = ["No image at all", "Image as clear and vivid as real life"]) => { 
+    items_smell = shuffleObject(smell)
+    questions = [ ] 
+
+    for (const key of Object.keys(items_smell)) {
+        q = {
+            title: items_smell[key],
+            name: key,
+            type: "rating",
+            displayMode: "buttons",
+            isRequired: required,
+            minRateDescription: ticks[0],
+            maxRateDescription: ticks[1],
+            rateValues: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        }
+        questions.push(q)
+    }
+    return { elements: questions }
+}
+
+const psiq_smell = {
+    type: jsPsychSurvey,
+    survey_json: function () {
+        return {
+            title: "Imagine the smell of:",
+            showQuestionNumbers: false,
+            goNextPageAutomatic: false,
+            pages: make_smell(smell),
+            completeText: "Continue",
+        }
+    },
+    data: {
+        screen: "psiq_smell",
+    },
+}
+
+// TASTE
+const taste = {
+    psiq_taste1: "Mustard",
+    psiq_taste2: "Toothpaste",
+    psiq_taste3: "Lemon",
+    psiq_taste4: "Sea water",
+    psiq_taste5: "Black pepper",
+}
+
+//make questions
+const make_taste = (items_taste, required = true, ticks = ["No image at all", "Image as clear and vivid as real life"]) => { //AI added the '=>', not in rebel code though
+    items_taste = shuffleObject(taste)
+    questions = [ ] 
+
+    for (const key of Object.keys(items_taste)) {
+        q = {
+            title: items_taste[key],
+            name: key,
+            type: "rating",
+            displayMode: "buttons",
+            isRequired: required,
+            minRateDescription: ticks[0],
+            maxRateDescription: ticks[1],
+            rateValues: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        }
+        questions.push(q)
+    }
+    return { elements: questions }
+}
+
+const psiq_taste = {
+    type: jsPsychSurvey,
+    survey_json: function () {
+        return {
+            title: "Imagine the taste of:",
+            showQuestionNumbers: false,
+            goNextPageAutomatic: false,
+            pages: make_taste(taste),
+            completeText: "Continue",
+        }
+    },
+    data: {
+        screen: "psiq_taste",
+    },
+}
+
+// TOUCH
+const touch = {
+    psiq_touch1: "Warm sand",
+    psiq_touch2: "A soft towel",
+    psiq_touch3: "The point of a pin",
+    psiq_touch4: "Icy water",
+    psiq_touch5: "Fur",
+}
+
+const make_touch = (items_touch, required = true, ticks = ["No image at all", "Image as clear and vivid as real life"]) => { //AI added the '=>', not in rebel code though
+    items_touch = shuffleObject(touch)
+    questions = [ ] 
+
+    for (const key of Object.keys(items_touch)) {
+        q = {
+            title: items_touch[key],
+            name: key,
+            type: "rating",
+            displayMode: "buttons",
+            isRequired: required,
+            minRateDescription: ticks[0],
+            maxRateDescription: ticks[1],
+            rateValues: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        }
+        questions.push(q)
+    }
+    return { elements: questions }
+}
+
+const psiq_touch = {
+    type: jsPsychSurvey,
+    survey_json: function () {
+        return {
+            title: "Imagine touching:",
+            showQuestionNumbers: false,
+            goNextPageAutomatic: false,
+            pages: make_touch(touch),
+            completeText: "Continue",
+        }
+    },
+    data: {
+        screen: "psiq_touch",
+    },
+}
+
+// BODILY SENSATION
+const bodily_sensation = {
+    psiq_bodily_sensation1: "Relaxing in a warm bath",
+    psiq_bodily_sensation2: "Having a sore throat",
+    psiq_bodily_sensation3: "Threading a needle",
+    psiq_bodily_sensation4: "Jumping into a swimming pool",
+    psiq_bodily_sensation5: "Walking briskly in the cold",
+}
+
+const make_bodily_sensation = (items_bodily_sensation, required = true, ticks = ["No image at all", "Image as clear and vivid as real life"]) => { 
+    items_bodily_sensation = shuffleObject(bodily_sensation)
+    questions = [ ] 
+
+    for (const key of Object.keys(items_bodily_sensation)) {
+        q = {
+            title: items_bodily_sensation[key],
+            name: key,
+            type: "rating",
+            displayMode: "buttons",
+            isRequired: required,
+            minRateDescription: ticks[0],
+            maxRateDescription: ticks[1],
+            rateValues: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        }
+        questions.push(q)
+    }
+    return { elements: questions }
+}
+
+const psiq_bodily_sensation = {
+    type: jsPsychSurvey,
+    survey_json: function () {
+        return {
+            title: "Imagine the bodily sensation of:",
+            showQuestionNumbers: false,
+            goNextPageAutomatic: false,
+            pages: make_bodily_sensation(bodily_sensation),
+            completeText: "Continue",
+        }
+    },
+    data: {
+        screen: "psiq_bodily_sensation",
+    },
+}
+
+//FEELING
+const feeling = {
+    psiq_feeling1: "Excited",
+    psiq_feeling2: "Relieved",
+    psiq_feeling3: "Furious",
+    psiq_feeling4: "In love",
+    psiq_feeling5: "Scared",
+}
+
+const make_feeling = (items_feeling, required = true, ticks = ["No image at all", "Image as clear and vivid as real life"]) => { //AI added the '=>', not in rebel code though
+    items_feeling = shuffleObject(feeling)
+    questions = [ ] 
+
+    for (const key of Object.keys(items_feeling)) {
+        q = {
+            title: items_feeling[key],
+            name: key,
+            type: "rating",
+            displayMode: "buttons",
+            isRequired: required,
+            minRateDescription: ticks[0],
+            maxRateDescription: ticks[1],
+            rateValues: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        }
+        questions.push(q)
+    }
+    return { elements: questions }
+}
+
+const psiq_feeling = {
+    type: jsPsychSurvey,
+    survey_json: function () {
+        return {
+            title: "Imagine feeling:",
+            showQuestionNumbers: false,
+            goNextPageAutomatic: false,
+            pages: make_feeling(feeling),
+            completeText: "Continue",
+        }
+    },
+    data: {
+        screen: "psiq_feeling",
+    },
+}
+
+

@@ -3,7 +3,7 @@
 
 <head>
     <!-- Title shown in tab -->
-    <title>Phenomenological Control Scale</title>
+    <title>Online Component</title>
 
     <!-- Load JsPsych -->
     <script src="https://unpkg.com/jspsych@8.2.1" type="text/javascript"></script>
@@ -14,10 +14,11 @@
     <script src="https://unpkg.com/@jspsych/plugin-preload@2.1.0"></script>
     <script src="https://unpkg.com/@jspsych/plugin-survey@2.0.0"></script>
     <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@2.1.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-fullscreen@2.1.0"></script>
 
 
     <!-- Add full URL https://realitybending.github.io/JSmisc/... -->
-    <script src="pcs_new.js"></script>
+    <script src="onlinecomponent.js"></script>
     <script src="demographics.js"></script>
 
     <link href="https://unpkg.com/jspsych@8.0.1/css/jspsych.css" rel="stylesheet" type="text/css" />
@@ -38,7 +39,7 @@
 
     var jsPsych = initJsPsych({
         on_finish: function () {
-            jsPsych.data.displayData("json") // Display data in browser
+            jsPsych.data.displayData("json") // CURRENTLY WILL display data in browser- CHANGE TO DATAPIPE OR OTHER METHOD FOR SAVING DATA IN FINAL VERSION
         },
         use_webaudio: true,
         override_safe_mode: true
@@ -48,10 +49,27 @@
         const participantID = jsPsych.randomization.randomID(10)
 
         // full screen
-        timeline.push()
+        timeline.push({
+            type: jsPsychFullscreen,
+            fullscreen_mode: true,
+        })
         timeline.push(ConsentForm)
+
+    //shuffle =====================================================================
+        var psiq_shuffled = jsPsych.randomization.shuffleNoRepeats([psiq_appearance, 
+        psiq_sound, 
+        psiq_smell, 
+        psiq_taste, 
+        psiq_touch, 
+        psiq_bodily_sensation, 
+        psiq_feeling])
+        var psiq = [psiq_intro, ...psiq_shuffled]
+
+        var order = jsPsych.randomization.shuffleNoRepeats([psiq, pcs_timeline])
+
     // Timeline -------------------------------------------------------------------
-    timeline.push(pcs_timeline)
+    timeline.push(order[0])
+    timeline.push(order[1])
 
     //  Run the timeline =====================================================
     jsPsych.run(timeline)
