@@ -2,10 +2,8 @@
 <html>
 
 <head>
-    <!-- Title shown in tab -->
     <title>Online Component</title>
 
-    <!-- Load JsPsych -->
     <script src="https://unpkg.com/jspsych@8.2.1" type="text/javascript"></script>
 
     <script src="https://unpkg.com/@jspsych/plugin-audio-button-response@2.1.0"></script>
@@ -17,7 +15,6 @@
     <script src="https://unpkg.com/@jspsych/plugin-fullscreen@2.1.0"></script>
 
 
-    <!-- Add full URL https://realitybending.github.io/JSmisc/... -->
     <script src="onlinecomponent.js"></script>
     <script src="demographics.js"></script>
 
@@ -34,45 +31,70 @@
 <body></body>
 
 <script>
-    // Initialize experiment =================================================
-    var timeline = []
-
+    // 1. Initialize jsPsych
     var jsPsych = initJsPsych({
         on_finish: function () {
-            jsPsych.data.displayData("json") // CURRENTLY WILL display data in browser- CHANGE TO DATAPIPE OR OTHER METHOD FOR SAVING DATA IN FINAL VERSION
+            jsPsych.data.displayData("json") 
         },
         use_webaudio: true,
         override_safe_mode: true
-    })
+    });
 
-     // Participant ID
-        const participantID = jsPsych.randomization.randomID(10)
+    // 2. Wrap the timeline construction in window.onload to ensure scripts are loaded
+    window.onload = function() {
+        var timeline = [];
 
-        // full screen
+        // Participant ID
+        const participantID = jsPsych.randomization.randomID(10);
+
+        // --- A. PREPARATORY STEPS ---
+        
+        // Fullscreen
         timeline.push({
             type: jsPsychFullscreen,
             fullscreen_mode: true,
-        })
-        timeline.push(ConsentForm)
+        });
 
-    //shuffle =====================================================================
-        var psiq_shuffled = jsPsych.randomization.shuffleNoRepeats([psiq_appearance, 
-        psiq_sound, 
-        psiq_smell, 
-        psiq_taste, 
-        psiq_touch, 
-        psiq_bodily_sensation, 
-        psiq_feeling])
-        var psiq = [psiq_intro, ...psiq_shuffled]
+        // Consent (from demographics.js)
+        if (typeof ConsentForm !== 'undefined') {
+            timeline.push(ConsentForm);
+        } else {
+            console.error("ConsentForm is missing! Check demographics.js");
+        }
 
-        var order = jsPsych.randomization.shuffleNoRepeats([psiq, pcs_timeline])
+        timeline.push(demographic_questions);
+        // --- B. TASK SHUFFLING ---
 
-    // Timeline -------------------------------------------------------------------
-    timeline.push(order[0])
-    timeline.push(order[1])
+        // Prepare PSIQ (from onlinecomponent.js)
+        var psiq_shuffled = jsPsych.randomization.shuffleNoRepeats([
+            psiq_appearance, 
+            psiq_sound, 
+            psiq_smell, 
+            psiq_taste, 
+            psiq_touch, 
+            psiq_bodily_sensation, 
+            psiq_feeling
+        ]);
+        var psiq = [psiq_intro, ...psiq_shuffled];
 
-    //  Run the timeline =====================================================
-    jsPsych.run(timeline)
+        // Shuffle Task Order (PSIQ vs PCS)
+        var order = jsPsych.randomization.shuffleNoRepeats([psiq, pcs_timeline]);
+
+        // --- C. BUILDING THE TIMELINE ---
+
+        timeline.push(order[0]);
+        timeline.push(order[1]);
+
+        // Debriefing (from demographics.js) - Added at the end
+        if (typeof demographics_debriefing !== 'undefined') {
+            timeline.push(demographics_debriefing);
+        } else {
+            console.error("demographics_debriefing is missing! Check demographics.js");
+        }
+
+        // 3. Run the timeline
+        jsPsych.run(timeline);
+    };
 </script>
 
 </html>
