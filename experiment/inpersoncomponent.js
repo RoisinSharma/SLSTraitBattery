@@ -84,17 +84,17 @@ const items_asc = {
 const shuffled_items = shuffleObject(items_asc)
 
 // build ALL questions into one array
-let elements = []
+let elements_asc = []
 
 // optional intro text (only once at top)
-elements.push({
+elements_asc.push({
     type: "html",
     html: "Think back to your strobe session.",
 })
 
 // add all slider questions
 for (const key of Object.keys(shuffled_items)) {
-    elements.push({
+    elements_asc.push({
         type: "slider",
         name: key,
         title: shuffled_items[key],
@@ -120,7 +120,7 @@ var asc = {
         title: "Altered State of Consciousness",
         pages: [
             {
-                elements: elements,
+                elements: elements_asc,
             },
         ],
     },
@@ -135,7 +135,7 @@ const vhq_instructions = {
     type: jsPsychSurvey,
     survey_json: {
         showQuestionNumbers: false,
-        completeText: "Start",
+        completeText: "Next",
         pages: [
             {
                 elements: [
@@ -144,10 +144,54 @@ const vhq_instructions = {
                         name: "vhq_instructions",
                         html:`
                         <div class="narrow-text" style="max-width: 900px; margin: 0 auto; text-align: left;">
-                <h2> Altered State of Consciousness</h2>
-                <p>On the following pages, you will find a series of statements and, below them, a line with the endpoints “NO, no more than usual” and “YES, much more than usual.” The line is a scale (0-100%) designed to measure the deviation from your usual, everyday waking state. </p>
-                <p>Please note that your usual, everyday waking state corresponds to the line on the far left (0% on the scale).</p>
-                <p><b>Please now assess the extent to which your state and feelings deviated from your usual, everyday experience from the beginning to the end of your session.</b></p>
+                <h2> Visual Experience Quesstionnaire</h2>
+                <p>Please read through these instructions carefully. </p>
+                <p>In this questionnaire, you will be prompted to answer a series of questions about what you saw, which is called your “visual experience”. </p>
+                <p>There will be 21 randomly ordered questions which you can answer on a scale from 1 to 5 where 1 means “no, not at all” and 5 means “yes, very much so”.</p>
+                <p>Here is an example question:</p>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/smilingquestion.jpg' alt='Example question' style='width: 300px; margin: 10px;'>
+                
+                <br><br><p>You would answer 5 “yes, very much so\" if you saw something like one of these images during your visual experience, which do have smiling faces:</p>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/face_smiling.png' alt='Example image 1' style='width: 300px; margin: 10px;'>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/fruit_smiling.png' alt='Example image 2' style='width: 300px; margin: 10px;'>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/smily_smiling.png' alt='Example image 3' style='width: 300px; margin: 10px;'>
+                
+                <br><br><p>Sometimes, the questions will not describe your experience at all, or even seem totally irrelevant to what you saw. In this case, you should answer 1 “no, not at all\".</p>
+                <p>For example:</p>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/face_not_smiling.png' alt='Example image 1' style='width: 300px; margin: 10px;'>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/solid.jpg' alt='Example image 2' style='width: 300px; margin: 10px;'>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/fruit_not.png' alt='Example image 3' style='width: 300px; margin: 10px;'>
+
+                <br><br><p>Other times, the questions will partially describe what you saw, but not perfectly. In this case, you should answer somewhere in between, such as 2, 3 or 4.</p>
+                <p>For example:</p>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/face_kinda_smiling.png' alt='Example image 1' style='width: 300px; margin: 10px;'>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/smiley_kinda.png' alt='Example image 2' style='width: 300px; margin: 10px;'>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/DALL·E+2023-12-22+12.57.png' alt='Example image 3' style='width: 300px; margin: 10px;'>
+
+                <br><br><p>Some questions will ask you if you saw something from a list of possibilities.</p>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/coloursquestion.jpg' alt='Example image 1' style='width: 300px; margin: 10px;'>
+                <p>For these questions, you should answer “yes” if you saw any of these items, even if it was only some or one of them.</p>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/PURPLE.jpg' alt='Example image 1' style='width: 300px; margin: 10px;'>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/RED.jpg' alt='Example image 2' style='width: 300px; margin: 10px;'>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/pexels-yelena-odintsova-19725808+(1).jpg' alt='Example image 3' style='width: 300px; margin: 10px;'>
+
+                <p>You would answer “no” if you saw none of these elements.</p>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/ORANGE2.jpg' alt='Example image 1' style='width: 300px; margin: 10px;'>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/GREY.jpg' alt='Example image 2' style='width: 300px; margin: 10px;'>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/ORANGE.jpg' alt='Example image 3' style='width: 300px; margin: 10px;'>
+
+                <br><br><p>Finally, make sure to answer about what you literally saw, not how you might interpret what you saw.</p>
+                <p>If you saw this image, you might be inclined to say that you saw a house with a face on it:</p>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/House1.jpg' alt='Example image 1' style='width: 300px; margin: 10px;'>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/House2.jpg' alt='Example image 2' style='width: 300px; margin: 10px;'>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/House3.jpg' alt='Example image 3' style='width: 300px; margin: 10px;'>
+                <p>However, in that context you should simply say you saw a house, as there are no actual faces in that image! Here is what a house with a face on it would mean:</p>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/House4.jpg' alt='Example image 1' style='width: 300px; margin: 10px;'>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/House5.jpg' alt='Example image 2' style='width: 300px; margin: 10px;'>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/House6.jpg' alt='Example image 3' style='width: 300px; margin: 10px;'>
+
+                <br><p>Overall, it's very important that you try to answer based on what you saw.</p>
+                <p>Do<em><strong> not </strong></em>answer questions based on what was in your imagination. <br><br> Click next to begin the questionnaire.</p>
                 </div>`,
                     },
                 ],
@@ -155,6 +199,89 @@ const vhq_instructions = {
         ],
     },
     data: {
-        screen: "asc_instructions",
+        screen: "vhq_instructions",
+    },
+}
+
+const items_vhq = {
+    geometric1: "I saw shapes, lines, dots, or other geometric formations.",
+    geometric2: "I saw geometrical patterns, similar to honeycombs, spirals, checkerboards, targets, or tunnels.",
+    geometric3: "I saw patterns, such as repeating shapes or colours.",
+    semantic1: "I saw things which looked like living beings, human-made objects, landscapes, or scenery.",
+    semantic2: "My visual experience contained elements that resembled things in the real world.",
+    semantic3: "I saw things similar to what I might see in dreams or normal waking life.",
+    detail1: "My visual experience was rich with intricate detail.",
+    detail2: "What I saw had fine details.",
+    detail3: "I saw many little details and nuances.",
+    vividness1: "My visual experience looked as though I was looking through a haze or through darkness.",
+    vividness2: "It looked like what I saw was faded, washed out, or greyed out.",
+    vividness3: "The colours or shades in my visual experience were mostly muted, dark, or dull. ",
+    entropy1: "What I saw was very chaotic.",
+    entropy2: "I saw a high level of randomness.",
+    entropy3: "My visual experience was jumbled, unstructured, asymmetric, incoherent, or otherwise disordered.",
+    focality1: "My visual experience was focused on one central point.",
+    focality2: "What I saw was spread evenly across my visual field. There was no single focus.",
+    focality3: "My visual experience had a clear focal point around which everything else was organised.",
+    infrequency1: "I saw images of food, meals, snacks, or drinks.",
+    infrequency2: "I am answering these questions specifically about my visual experience.",
+}
+
+//INFREQUENCY 3 BUILT SEPARATELY AS RESPONSE ISN'T REQUIRED
+const infrequency3 = {
+    type: "rating",
+    name: "infrequency3",
+    title: "If you are answering honestly, please do not answer this question. Simply leave the answer blank.",
+    isRequired: false,
+    minRateDescription: "no, not at all",
+    maxRateDescription: "yes, very much so",
+    rateValues: [1,2,3,4,5],
+}
+
+// shuffle once
+const shuffled_vhq = shuffleObject(items_vhq)
+
+// build ALL questions into one array
+let elements_vhq = [] //is it ok that's is the same name as asc? I think it's fine as this is a global variable
+
+// optional intro text (only once at top)
+/*
+elements_vhq.push({
+    type: "html",
+    html: "Think back to your strobe session.",
+})
+*/
+
+// add all likert questions
+for (const key of Object.keys(shuffled_vhq)) {
+    elements_vhq.push({
+        type: "rating",
+        name: key,
+        title: shuffled_vhq[key],
+        isRequired: true,
+        minRateDescription: "no, not at all",
+        maxRateDescription: "yes, very much so",
+        rateValues: [1,2,3,4,5],
+        //defaultValueExpression: "50",
+    })
+}
+//There's some extra stuff at the end on the online comp psiq
+
+const randomIndex = Math.floor(Math.random() * (elements_vhq.length + 1))
+elements_vhq.splice(randomIndex, 0, infrequency3) // add infrequency3 at the end of the shuffled items
+
+var vhq = {
+    type: jsPsychSurvey,
+    survey_json: {
+        showQuestionNumbers: false,
+        showNavigationButtons: true,
+        completeText: "Submit",
+        title: "Visual Experience Questionnaire",
+        pages: [
+            {elements: elements_vhq
+            },
+        ],
+    },
+    data: {
+        screen: "vhq",
     },
 }
