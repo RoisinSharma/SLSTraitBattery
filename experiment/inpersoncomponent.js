@@ -13,7 +13,14 @@ const asc_instructions = {
                         html:`
                         <div class="narrow-text" style="max-width: 900px; margin: 0 auto; text-align: left;">
                 <h2> Altered State of Consciousness</h2>
-                <p>On the following pages, you will find a series of statements and, below them, a line with the endpoints “NO, no more than usual” and “YES, much more than usual.” The line is a scale (0-100%) designed to measure the deviation from your usual, everyday waking state. </p>
+                <p>On the following pages, you will find a series of statements and, below them, a line with the endpoints “NO, no more than usual” and “YES, much more than usual, for example:” </p>
+                 <div style="display: flex; justify-content: center;">
+                <img src="https://RoisinSharma.github.io/SLSTraitBattery/images/ascquestion.jpg"
+                    alt="Example question"
+                    style="width: 700px; margin: 10px;">
+                </div>
+                
+                <p>The line is a scale (0-100%) designed to measure the deviation from your usual, everyday waking state. </p>
                 <p>Please note that your usual, everyday waking state corresponds to the line on the far left (0% on the scale).</p>
                 <p><b>Please now assess the extent to which your state and feelings deviated from your usual, everyday experience from the beginning to the end of your session.</b></p>
                 </div>`,
@@ -144,51 +151,73 @@ const vhq_instructions = {
                         name: "vhq_instructions",
                         html:`
                         <div class="narrow-text" style="max-width: 900px; margin: 0 auto; text-align: left;">
-                <h2> Visual Experience Quesstionnaire</h2>
+                <h2> Visual Experience Questionnaire</h2>
                 <p>Please read through these instructions carefully. </p>
                 <p>In this questionnaire, you will be prompted to answer a series of questions about what you saw, which is called your “visual experience”. </p>
                 <p>There will be 21 randomly ordered questions which you can answer on a scale from 1 to 5 where 1 means “no, not at all” and 5 means “yes, very much so”.</p>
                 <p>Here is an example question:</p>
-                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/smilingquestion.jpg' alt='Example question' style='width: 300px; margin: 10px;'>
-                
+               <div style="display: flex; justify-content: center;">
+                <img src="https://RoisinSharma.github.io/SLSTraitBattery/images/smilingquestion.jpg"
+                    alt="Example question"
+                    style="width: 700px; margin: 10px;">
+                </div>
                 <br><br><p>You would answer 5 “yes, very much so\" if you saw something like one of these images during your visual experience, which do have smiling faces:</p>
-                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/face_smiling.png' alt='Example image 1' style='width: 300px; margin: 10px;'>
-                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/fruit_smiling.png' alt='Example image 2' style='width: 300px; margin: 10px;'>
-                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/smily_smiling.png' alt='Example image 3' style='width: 300px; margin: 10px;'>
-                
+                <div style="display: flex; gap: 0px; justify-content: center;">
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/face_smiling.png' alt='Example image 1' style='width: 200px; margin: 10px;'>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/fruit_smiling.png' alt='Example image 2' style='width: 200px; margin: 10px;'>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/smiley_smiling.png' alt='Example image 3' style='width: 200px; margin: 10px;'>
+                </div>
+
                 <br><br><p>Sometimes, the questions will not describe your experience at all, or even seem totally irrelevant to what you saw. In this case, you should answer 1 “no, not at all\".</p>
                 <p>For example:</p>
-                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/face_not_smiling.png' alt='Example image 1' style='width: 300px; margin: 10px;'>
-                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/solid.jpg' alt='Example image 2' style='width: 300px; margin: 10px;'>
-                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/fruit_not.png' alt='Example image 3' style='width: 300px; margin: 10px;'>
+                <div style="display: flex; gap: 0px; justify-content: center;">
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/face_not_smiling.png' alt='Example image 1' style='width: 200px; margin: 10px;'>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/solid.jpg' alt='Example image 2' style='width: 200px; margin: 10px;'>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/fruit_not.png' alt='Example image 3' style='width: 200px; margin: 10px;'>
+                </div>
 
                 <br><br><p>Other times, the questions will partially describe what you saw, but not perfectly. In this case, you should answer somewhere in between, such as 2, 3 or 4.</p>
                 <p>For example:</p>
-                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/face_kinda_smiling.png' alt='Example image 1' style='width: 300px; margin: 10px;'>
-                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/smiley_kinda.png' alt='Example image 2' style='width: 300px; margin: 10px;'>
-                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/DALL·E+2023-12-22+12.57.png' alt='Example image 3' style='width: 300px; margin: 10px;'>
+                <div style="display: flex; gap: 0px; justify-content: center;">
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/face_kinda_smiling.png' alt='Example image 1' style='width: 200px; margin: 10px;'>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/smiley_kinda.png' alt='Example image 2' style='width: 200px; margin: 10px;'>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/DALL·E+2023-12-22+12.57.png' alt='Example image 3' style='width: 200px; margin: 10px;'>
+                </div>
 
                 <br><br><p>Some questions will ask you if you saw something from a list of possibilities.</p>
-                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/coloursquestion.jpg' alt='Example image 1' style='width: 300px; margin: 10px;'>
+                <div style="display: flex; justify-content: center;">
+                <img src="https://RoisinSharma.github.io/SLSTraitBattery/images/coloursquestion.jpg"
+                    alt="Example question"
+                    style="width: 700px; margin: 10px;">
+                </div>
                 <p>For these questions, you should answer “yes” if you saw any of these items, even if it was only some or one of them.</p>
-                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/PURPLE.jpg' alt='Example image 1' style='width: 300px; margin: 10px;'>
-                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/RED.jpg' alt='Example image 2' style='width: 300px; margin: 10px;'>
-                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/pexels-yelena-odintsova-19725808+(1).jpg' alt='Example image 3' style='width: 300px; margin: 10px;'>
+                <div style="display: flex; gap: 0px; justify-content: center;">
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/PURPLE.jpg' alt='Example image 1' style='width: 200px; margin: 10px;'>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/RED.jpg' alt='Example image 2' style='width: 200px; margin: 10px;'>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/pexels-yelena-odintsova-19725808+(1).jpg' alt='Example image 3' style='width: 200px; margin: 10px;'>
+                </div>
 
                 <p>You would answer “no” if you saw none of these elements.</p>
-                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/ORANGE2.jpg' alt='Example image 1' style='width: 300px; margin: 10px;'>
-                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/GREY.jpg' alt='Example image 2' style='width: 300px; margin: 10px;'>
-                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/ORANGE.jpg' alt='Example image 3' style='width: 300px; margin: 10px;'>
+                <div style="display: flex; gap: 0px; justify-content: center;">
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/ORANGE2.jpg' alt='Example image 1' style='width: 200px; margin: 10px;'>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/GREY.jpg' alt='Example image 2' style='width: 200px; margin: 10px;'>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/ORANGE.jpg' alt='Example image 3' style='width: 200px; margin: 10px;'>
+                </div>
 
                 <br><br><p>Finally, make sure to answer about what you literally saw, not how you might interpret what you saw.</p>
                 <p>If you saw this image, you might be inclined to say that you saw a house with a face on it:</p>
-                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/House1.jpg' alt='Example image 1' style='width: 300px; margin: 10px;'>
-                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/House2.jpg' alt='Example image 2' style='width: 300px; margin: 10px;'>
-                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/House3.jpg' alt='Example image 3' style='width: 300px; margin: 10px;'>
+                <div style="display: flex; gap: 0px; justify-content: center;">
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/House1.jpg' alt='Example image 1' style='width: 200px; margin: 10px;'>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/House2.jpg' alt='Example image 2' style='width: 200px; margin: 10px;'>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/House3.jpg' alt='Example image 3' style='width: 200px; margin: 10px;'>
+                </div>
+                
                 <p>However, in that context you should simply say you saw a house, as there are no actual faces in that image! Here is what a house with a face on it would mean:</p>
-                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/House4.jpg' alt='Example image 1' style='width: 300px; margin: 10px;'>
-                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/House5.jpg' alt='Example image 2' style='width: 300px; margin: 10px;'>
-                <img src='https://RoisinSharma.github.io/SLSTraitBattery/experiment/House6.jpg' alt='Example image 3' style='width: 300px; margin: 10px;'>
+                <div style="display: flex; gap: 0px; justify-content: center;">
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/House4.jpg' alt='Example image 1' style='width: 200px; margin: 10px;'>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/House5.jpg' alt='Example image 2' style='width: 200px; margin: 10px;'>
+                <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/House6.jpg' alt='Example image 3' style='width: 200px; margin: 10px;'>
+                </div>
 
                 <br><p>Overall, it's very important that you try to answer based on what you saw.</p>
                 <p>Do<em><strong> not </strong></em>answer questions based on what was in your imagination. <br><br> Click next to begin the questionnaire.</p>
