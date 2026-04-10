@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>In-Person Component</title>
+    <!-- jsPsych -->
+   <script src="https://unpkg.com/jspsych@8.2.1" type="text/javascript"></script>
+   <link href="https://unpkg.com/jspsych@8.0.1/css/jspsych.css" rel="stylesheet" type="text/css" />
+
+   <!-- jsPsych plugins -->
+    <script src="https://unpkg.com/@jspsych/plugin-html-button-response@2.1.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-preload@2.1.0"></script>
+    <!-- <script src="https://unpkg.com/@jspsych/plugin-survey@3.0.0"></script> -->
+    <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@2.1.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-fullscreen@2.1.0"></script>
+   <!-- <script src="https://unpkg.com/surveyjs-widgets/surveyjs-widgets.min.js"></script> -->
+    <link 
+    rel="stylesheet" 
+    href="https://unpkg.com/@jspsych/plugin-survey@3.0.0/css/survey.css" /> <!--was 2.0.0, changed for nicer slider-->
+        
+
+    <script src="jspsych/plugin-survey.js"></script>
+    <script src="jspsych/plugin-html-slider-response.js"></script>
+    <script src="inpersoncomponent.js"></script>
+    <script src="demographics.js"></script>
+
+    
+
+
+    <style>
+        .blacktext {
+            color: rgb(0, 0, 0);
+        }
+    </style>
+</head>
+
+<body></body>
+
+<script>
+    
+    var participant_ID = {
+            type: jsPsychSurvey,
+            survey_json: {
+                title: "About yourself",
+                completeText: "Continue",
+                pageNextText: "Next",
+                pagePrevText: "Previous",
+                goNextPageAutomatic: false,
+                showQuestionNumbers: false,
+                pages: [
+                    {
+                        elements: [
+                            {
+                                title: "Enter the participant's ID:",
+                                type: "text",
+                                placeholder: "000",
+                                name: "Participant_ID",
+                                isRequired: true,
+                            },
+                        ],
+                    },
+                ],
+            },
+            data: {
+                screen: "ppt_id",
+            },
+        }
+    
+    
+    // 1. Initialize jsPsych
+    var jsPsych = initJsPsych({
+        on_finish: function () {
+            jsPsych.data.displayData("json") 
+        },
+        use_webaudio: true,
+        override_safe_mode: true
+    });
+
+    // 2. Wrap the timeline construction in window.onload to ensure scripts are loaded
+    window.onload = function() {
+        var timeline = [];
+
+        timeline.push(participant_ID)
+        timeline.push(demographic_questions)
+        timeline.push(asc_instructions)
+        timeline.push(asc)
+        
+        
+
+        // --- A. PREPARATORY STEPS ---
+        
+        // Fullscreen
+        timeline.push({
+            type: jsPsychFullscreen,
+            fullscreen_mode: true,
+        });
+
+        // Run the experiment
+        jsPsych.run(timeline);
+    };
+    </script>
+</html>

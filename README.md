@@ -11,9 +11,7 @@ experiment, this repo includes:
 
 -   Plymouth Sensory Imagery Questionnaire (Andrade et al., 2014)
 
---\> [**Test the
-experiment**](https://RoisinSharma.github.io/SLSTraitBattery/experiment/index?exp=README)
-\<--
+--\> [**Test the online component**](https://RoisinSharma.github.io/SLSTraitBattery/experiment/onlinecomponent.html) \<--
 
 References:
 
