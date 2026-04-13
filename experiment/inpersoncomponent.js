@@ -13,7 +13,7 @@ const asc_instructions = {
                         html:`
                         <div class="narrow-text" style="max-width: 900px; margin: 0 auto; text-align: left;">
                 <h2> Altered State of Consciousness</h2>
-                <p>On the following pages, you will find a series of statements and, below them, a line with the endpoints “NO, no more than usual” and “YES, much more than usual, for example:” </p>
+                <p>On the following pages, you will find a series of statements and, below them, a line with the endpoints “NO, no more than usual” and “YES, much more than usual”, for example: </p>
                  <div style="display: flex; justify-content: center;">
                 <img src="https://RoisinSharma.github.io/SLSTraitBattery/images/ascquestion.jpg"
                     alt="Example question"
@@ -154,21 +154,21 @@ const vhq_instructions = {
                 <h2> Visual Experience Questionnaire</h2>
                 <p>Please read through these instructions carefully. </p>
                 <p>In this questionnaire, you will be prompted to answer a series of questions about what you saw, which is called your “visual experience”. </p>
-                <p>There will be 21 randomly ordered questions which you can answer on a scale from 1 to 5 where 1 means “no, not at all” and 5 means “yes, very much so”.</p>
+                <p>There will be 21 randomly ordered questions which you can answer on a scale from 1 to 5 where <b>1 means “no, not at all”</b> and <b>5 means “yes, very much so”</b>.</p>
                 <p>Here is an example question:</p>
                <div style="display: flex; justify-content: center;">
                 <img src="https://RoisinSharma.github.io/SLSTraitBattery/images/smilingquestion.jpg"
                     alt="Example question"
                     style="width: 700px; margin: 10px;">
                 </div>
-                <br><br><p>You would answer 5 “yes, very much so\" if you saw something like one of these images during your visual experience, which do have smiling faces:</p>
+                <br><br><p>You would answer <b>5</b> “yes, very much so” if you saw something like one of these images during your visual experience, which do have smiling faces:</p>
                 <div style="display: flex; gap: 0px; justify-content: center;">
                 <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/face_smiling.png' alt='Example image 1' style='width: 200px; margin: 10px;'>
                 <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/fruit_smiling.png' alt='Example image 2' style='width: 200px; margin: 10px;'>
                 <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/smiley_smiling.png' alt='Example image 3' style='width: 200px; margin: 10px;'>
                 </div>
 
-                <br><br><p>Sometimes, the questions will not describe your experience at all, or even seem totally irrelevant to what you saw. In this case, you should answer 1 “no, not at all\".</p>
+                <br><br><p>Sometimes, the questions will not describe your experience at all, or even seem totally irrelevant to what you saw. In this case, you should answer <b>1</b> “no, not at all”.</p>
                 <p>For example:</p>
                 <div style="display: flex; gap: 0px; justify-content: center;">
                 <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/face_not_smiling.png' alt='Example image 1' style='width: 200px; margin: 10px;'>
@@ -176,7 +176,7 @@ const vhq_instructions = {
                 <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/fruit_not.png' alt='Example image 3' style='width: 200px; margin: 10px;'>
                 </div>
 
-                <br><br><p>Other times, the questions will partially describe what you saw, but not perfectly. In this case, you should answer somewhere in between, such as 2, 3 or 4.</p>
+                <br><br><p>Other times, the questions will partially describe what you saw, but not perfectly. In this case, you should answer somewhere in between, such as <b>2</b>, <b>3</b> or <b>4</b>.</p>
                 <p>For example:</p>
                 <div style="display: flex; gap: 0px; justify-content: center;">
                 <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/face_kinda_smiling.png' alt='Example image 1' style='width: 200px; margin: 10px;'>
@@ -190,14 +190,14 @@ const vhq_instructions = {
                     alt="Example question"
                     style="width: 700px; margin: 10px;">
                 </div>
-                <p>For these questions, you should answer “yes” if you saw any of these items, even if it was only some or one of them.</p>
+                <p>For these questions, you should answer <b>“yes”</b> if you saw any of these items, even if it was only some or one of them.</p>
                 <div style="display: flex; gap: 0px; justify-content: center;">
                 <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/PURPLE.jpg' alt='Example image 1' style='width: 200px; margin: 10px;'>
                 <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/RED.jpg' alt='Example image 2' style='width: 200px; margin: 10px;'>
                 <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/pexels-yelena-odintsova-19725808+(1).jpg' alt='Example image 3' style='width: 200px; margin: 10px;'>
                 </div>
 
-                <p>You would answer “no” if you saw none of these elements.</p>
+                <p>You would answer <b>“no”</b> if you saw none of these elements.</p>
                 <div style="display: flex; gap: 0px; justify-content: center;">
                 <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/ORANGE2.jpg' alt='Example image 1' style='width: 200px; margin: 10px;'>
                 <img src='https://RoisinSharma.github.io/SLSTraitBattery/images/GREY.jpg' alt='Example image 2' style='width: 200px; margin: 10px;'>
