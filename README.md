@@ -5,8 +5,6 @@ experiment, this repo includes:
 
 -   Informed consent
 
--   Pre-screening to check eligibility
-
 -   Phenomenological Control Scale (Lush et al., 2020)
 
 -   Plymouth Sensory Imagery Questionnaire (Andrade et al., 2014)
