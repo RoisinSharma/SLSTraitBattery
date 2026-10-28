@@ -11,6 +11,10 @@ experiment, this repo includes:
 
 --\> [**Test the online component**](https://RoisinSharma.github.io/SLSTraitBattery/experiment/onlinecomponent.html) \<--
 
+--\> [**Test the in-person component**](https://RoisinSharma.github.io/SLSTraitBattery/experiment/inpersoncomponent.html) \<--
+
+Note: The computer experiment will not work on firefox (or presumably chrome), your best bet is to run these on microsoft edge 
+
 References:
 
 Andrade, J., May, J., Deeprose, C., Baugh, S.-J., & Ganis, G. (2014).

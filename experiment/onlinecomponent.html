@@ -10,16 +10,17 @@
     <script src="https://unpkg.com/@jspsych/plugin-audio-keyboard-response@2.1.0"></script>
     <script src="https://unpkg.com/@jspsych/plugin-html-button-response@2.1.0"></script>
     <script src="https://unpkg.com/@jspsych/plugin-preload@2.1.0"></script>
-    <script src="https://unpkg.com/@jspsych/plugin-survey@3.0.0"></script> <!--WAS 2.0.0, CHANGED FOR CONSISTENCY WITH IN-PERSON BUT CHECK THIS WORKS!-->
+    <script src="https://unpkg.com/@jspsych/plugin-survey@2.0.0"></script> <!--WAS 3.0.0, CHANGED BACK TO 2.0.0 IN CASE IT MAKES IT BUG, BUT IN-PERSON IS 3.0.0-->
     <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@2.1.0"></script>
     <script src="https://unpkg.com/@jspsych/plugin-fullscreen@2.1.0"></script>
+    <script src="https://RoisinSharma.github.io/SLSTraitBattery/experiment/onlinecomponent.js"></script>
 
 
     <script src="onlinecomponent.js"></script>
     <script src="demographics.js"></script>
 
     <link href="https://unpkg.com/jspsych@8.0.1/css/jspsych.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://unpkg.com/@jspsych/plugin-survey@3.0.0/css/survey.css" /> <!--WAS 2.0.0, CHANGED FOR CONSISTENCY WITH IN-PERSON BUT CHECK THIS WORKS! (STILL FINE IF I KEEP IT AS THIS)-->
+    <link rel="stylesheet" href="https://unpkg.com/@jspsych/plugin-survey@2.0.0/css/survey.css" /> <!--WAS 3.0.0, CHANGED BACK TO 2.0.0 IN CASE IT MAKES IT BUG, BUT IN-PERSON IS 3.0.0-->
 
     <style>
         .blacktext {
@@ -31,21 +32,58 @@
 <body></body>
 
 <script>
-    // 1. Initialize jsPsych
-    var jsPsych = initJsPsych({
-        on_finish: function () {
-            jsPsych.data.displayData("json") 
-        },
-        use_webaudio: true,
-        override_safe_mode: true
-    });
+
+    var participant_ID = {
+                    type: jsPsychSurvey,
+                    survey_json: {
+                        title: "Participant ID",
+                        completeText: "Continue",
+                    //    pageNextText: "Next",
+                    //    pagePrevText: "Previous",
+                        goNextPageAutomatic: false,
+                        showQuestionNumbers: false,
+                        pages: [
+                            {
+                                elements: [
+                                    {
+                                        title: "Enter the participant's ID:",
+                                        type: "text",
+                                        placeholder: "000",
+                                        name: "Participant_ID",
+                                        isRequired: true,
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    data: {
+                        screen: "ppt_id_db",
+                    },
+                }
+
+      var jsPsych = initJsPsych({
+             show_progress_bar: true,
+             message_progress_bar: "Progress",
+            on_finish: function () {
+                // Get participant ID
+                let participantID = jsPsych.data
+                    .get()
+                    .filter({ screen: "ppt_id_db" })
+                    .values()[0].response["Participant_ID"]
+
+                // Save as JSON file locally
+                jsPsych.data.get().localSave("json", `${participantID}_db.json`)
+            },
+            use_webaudio: true,
+            override_safe_mode: true
+        })
 
     // 2. Wrap the timeline construction in window.onload to ensure scripts are loaded
     window.onload = function() {
         var timeline = [];
 
         // Participant ID
-        const participantID = jsPsych.randomization.randomID(10);
+        //const participantID = jsPsych.randomization.randomID(10);
 
         // --- A. PREPARATORY STEPS ---
         
@@ -93,6 +131,7 @@
         }
 
         // 3. Run the timeline
+        jspsych.push(participant_ID)
         jsPsych.run(timeline);
     };
 </script>
